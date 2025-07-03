@@ -58,3 +58,24 @@
 
 ---
 
+### UML Basics
+
+**Building Blocks of UML Diagrams**
+
+- + (public)
+- - (private)
+- \# (protected)
+- ~ (package)
+
+
+**Relationships**
+
+- Association - uses-a relationship (->)
+- Aggregation - has-a relationship (-<>)
+- Composition - strong has-a relationship (-<*>)
+- Inheritance - is-a relationship (-|>)
+- Implementation - implementation of the interface (--|>)
+- Dependency - Depending on the another class. It is also use-a relationship (-->)
+
+---
+
