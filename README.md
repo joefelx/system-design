@@ -4,7 +4,7 @@
 
 ---
 
-### **[1. System Design Basics](./System Design Basics)**
+### **[1. System Design Basics](./System%20Design%20Basics.md)**
 
 * **High-Level Design Approach** —
   * Functional vs Non-functional requirements.
