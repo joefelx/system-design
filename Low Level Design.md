@@ -62,8 +62,8 @@
 
 **Building Blocks of UML Diagrams**
 
-- + (public)
-- - (private)
+- \+ (public)
+- \- (private)
 - \# (protected)
 - ~ (package)
 
