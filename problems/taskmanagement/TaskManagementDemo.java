@@ -8,6 +8,10 @@ public class TaskManagementDemo {
     private static final TaskManager taskManager = TaskManager.getInstance();
     private static final Scanner sc = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        execute();
+    }
+
     public static void execute() {
         while (true) {
             System.out.println("\n--- Task Management ---");
@@ -82,7 +86,8 @@ public class TaskManagementDemo {
                     System.out.print("Enter new status (TODO, IN_PROGRESS, DONE): ");
                     Status newStatus = Status.valueOf(sc.nextLine().toUpperCase());
 
-                    if (taskManager.update(updateUserId, updateTaskId, newTitle, newDesc, newDue, newPriority, newStatus)) {
+                    if (taskManager.update(updateUserId, updateTaskId, newTitle, newDesc, newDue, newPriority,
+                            newStatus)) {
                         System.out.println("Task updated.");
                     } else {
                         System.out.println("Update failed (check IDs).");
@@ -141,7 +146,6 @@ public class TaskManagementDemo {
                 case 9:
                     System.out.println("[TaskManager] Exiting...");
                     return;
-
 
                 default:
                     System.out.println("[TaskManager] Invalid option. Try again.");

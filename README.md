@@ -3,6 +3,8 @@
 > These are the essential topics for understanding system design.
 
 ---
+### **Prerequisites**
+#### **[LLD](./Low%20Level%20Design.md)**
 
 ### **[1. System Design Basics](./System%20Design%20Basics.md)**
 

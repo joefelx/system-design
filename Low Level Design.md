@@ -79,3 +79,202 @@
 
 ---
 
+### 7 Design Patterns over most of the problems
+
+#### Creational Patterns
+
+- Singleton pattern.
+- Factory Pattern.
+- Builder Pattern.
+
+#### Behavioural Pattern
+
+- Strategy.
+- Observer.
+- Decorator
+
+#### Integration
+
+- Adapter
+
+##### **Singleton Pattern**
+It will only have one instance global to unsure reusability without creation new object every time.
+
+- DB connection pool
+- Logger
+- Config loader
+
+##### **Factory Pattern**
+To unsure the centralised object creation.
+
+- UI toolkit creating buttons for different OS
+- Frameworks creating beans (Spring)
+
+```java
+interface Shape {
+    void draw();
+}
+
+class Circle implements Shape {
+    public void draw() { System.out.println("Circle"); }
+}
+
+class Square implements Shape {
+    public void draw() { System.out.println("Square"); }
+}
+
+class ShapeFactory {
+    public Shape getShape(String type) {
+        if (type.equalsIgnoreCase("circle")) return new Circle();
+        if (type.equalsIgnoreCase("square")) return new Square();
+        return null;
+    }
+}
+
+```
+
+
+
+
+##### **Builder Pattern**
+I skip this for now, because i didn't understand how it is implemented
+
+##### **Strategy Pattern**
+
+- When we want different implementation for the particular method like Payment system where we have option got Paytm, Gpay and etc option on top of UPI.
+- It passed over at the run time. Like having a common interface like UPI payments and its implementation changes.
+- Calling those implemented Class by passing it as an object to the methods that perform the payment operations, where the chose of the implemented is called on the run time.
+
+use case:
+- Payment gateway selection
+- Compression strategy (zip, gzip)
+- Sorting techniques
+
+```java
+interface PaymentStrategy {
+    void pay(int amount);
+}
+
+class CreditCardPayment implements PaymentStrategy {
+    public void pay(int amount) {
+        System.out.println("Paid " + amount + " with credit card");
+    }
+}
+
+class UPIPayment implements PaymentStrategy {
+    public void pay(int amount) {
+        System.out.println("Paid " + amount + " via UPI");
+    }
+}
+
+class PaymentContext {
+    private PaymentStrategy strategy;
+
+    public PaymentContext(PaymentStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void executePayment(int amount) {
+        strategy.pay(amount);
+    }
+}
+
+```
+
+
+##### **Observer Pattern**
+We want to notify multiple dependent objects when something changes.
+
+```java
+interface Observer {
+    void update(String message);
+}
+
+class EmailNotifier implements Observer {
+    public void update(String message) {
+        System.out.println("Email: " + message);
+    }
+}
+
+class SMSNotifier implements Observer {
+    public void update(String message) {
+        System.out.println("SMS: " + message);
+    }
+}
+
+class EventPublisher {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void subscribe(Observer o) {
+        observers.add(o);
+    }
+
+    public void notifyAllObservers(String msg) {
+        for (Observer o : observers) {
+            o.update(msg);
+        }
+    }
+}
+
+```
+
+##### **Decorator Pattern**
+It is more of like adding additional features to the existing class without modifications.
+
+- Java I/O streams
+- Middleware layers
+
+```java
+interface Coffee {
+    String getDescription();
+    int cost();
+}
+
+class SimpleCoffee implements Coffee {
+    public String getDescription() { return "Simple Coffee"; }
+    public int cost() { return 5; }
+}
+
+class MilkDecorator implements Coffee {
+    private Coffee coffee;
+    public MilkDecorator(Coffee coffee) { this.coffee = coffee; }
+
+    public String getDescription() { return coffee.getDescription() + ", Milk"; }
+    public int cost() { return coffee.cost() + 2; }
+}
+
+```
+
+
+#### **Adapter**
+
+As name suggest, the adapter is used to make two incompatible interfaces work together.
+
+```java
+interface NewCharger {
+    void chargePhone();
+}
+
+class OldCharger {
+    public void oldCharge() {
+        System.out.println("Charging with old charger");
+    }
+}
+
+class ChargerAdapter implements NewCharger {
+    private OldCharger oldCharger;
+
+    public ChargerAdapter(OldCharger oldCharger) {
+        this.oldCharger = oldCharger;
+    }
+
+    public void chargePhone() {
+        oldCharger.oldCharge();
+    }
+}
+
+```
+
+
+---
+
