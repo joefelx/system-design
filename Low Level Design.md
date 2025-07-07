@@ -278,3 +278,76 @@ class ChargerAdapter implements NewCharger {
 
 ---
 
+### **OOPS & SOLID PRINCIPLES**
+
+OOP - Object Oriented Programming
+
+It has four principles:
+
+- Inheritance.
+- Abstraction.
+- Encapsulation.
+- Polymorphism.
+
+
+#### Inheritance — _Mechanism for Code Reuse via Hierarchies_
+
+> When a class derives from another to reuse or extend its behavior, it forms an _is-a_ relationship.
+
+**Use only when:**
+
+- There's a true generalization-specialization relationship.
+- You want to reuse code, not just access it.
+
+**Cracked understanding:**
+
+> Prefer _composition_ over inheritance unless you're modeling real taxonomic hierarchies. Inheritance couples tightly — changes in parent ripple to child.
+
+---
+
+#### Abstraction — *Expose Behaviour, Hide Complexity*
+
+> Abstraction is exposing only relevant behaviour to the outside world and hiding internal implementation.
+
+**In design:**
+
+- Achieved via interfaces and abstract classes.    
+- Helps reduce coupling and enforce contracts.
+
+**Cracked understanding:**
+
+> You abstract not just to “hide,” but to _decouple interface from implementation_, so changes inside don't break consumers.
+
+---
+
+#### Encapsulation — _Protect State and Behavior Behind Boundaries_
+
+> Encapsulation means bundling data and methods, and restricting access to internals using access modifiers.
+
+**In design:**
+
+- Keep fields `private`, expose via controlled getters/setters.
+- Guard invariants, prevent inconsistent state.
+
+**Cracked understanding:**
+
+> Encapsulation is not just “hiding.” It’s _controlling access_ to prevent misuse and keep objects valid and consistent.
+
+---
+
+#### Polymorphism — _Unified Interface, Varying Behavior_
+
+> The ability of different types (usually subclasses or implementations) to respond to the same method call in different ways.
+
+**In Java:**
+
+- **Compile-time polymorphism**: Method overloading
+- **Runtime polymorphism**: Method overriding via inheritance or interfaces
+
+**Cracked understanding:**
+
+> Polymorphism enables extensibility without modification — core to Open/Closed Principle. It's why interfaces matter.
+
+
+---
+
