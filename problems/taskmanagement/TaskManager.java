@@ -1,5 +1,6 @@
 package taskmanagement;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -109,6 +110,25 @@ public class TaskManager {
             return new ArrayList<>();
 
         return userTaskMap.get(userId);
+    }
+
+    public void saveToFile(String filename) {
+        try {
+            ObjectOutputStream ob = new ObjectOutputStream(new FileOutputStream(filename));
+            ob.writeObject(tasks);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void importFromFile(String filename) {
+        try {
+            ObjectInputStream ob = new ObjectInputStream(new FileInputStream(filename));
+            tasks = (Map<Integer, Task>) ob.readObject();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -292,7 +292,7 @@ It has four principles:
 
 #### Inheritance — _Mechanism for Code Reuse via Hierarchies_
 
-> When a class derives from another to reuse or extend its behavior, it forms an _is-a_ relationship.
+> When a class derives from another to reuse or extend its behaviour, it forms an _is-a_ relationship.
 
 **Use only when:**
 
@@ -301,7 +301,7 @@ It has four principles:
 
 **Cracked understanding:**
 
-> Prefer _composition_ over inheritance unless you're modeling real taxonomic hierarchies. Inheritance couples tightly — changes in parent ripple to child.
+> Prefer _composition_ over inheritance unless you're modelling real taxonomic hierarchies. Inheritance couples tightly — changes in parent ripple to child.
 
 ---
 
